@@ -44,6 +44,14 @@
 \allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
 % (This matches ConTeXt defaults)
 
+%%% ENVIRONMENT ITEMIZE
+\newenvironment{myitemize}
+{ \begin{itemize}[]
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{itemize}                  } 
+
 %%% ToC (table of contents) APPEARANCE
 \usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
 \usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
@@ -91,19 +99,63 @@ James Euesden (jee22) &  Department of Computer Science \\
 \section{Introduction}
 
 \section{Analysis}
+\subsection{Functional Dependencies}
+To see the functional dependencies, I made a number of assumptions about the data, based upon the sample data provided.
+\subsubsection{Piste}
+ \textbf{pisteName -\textgreater  grade, length, fall, open}
+\\[0.1cm]
+pisteName does not functionally determine the liftName, as liftName could be a number of things. It does, however, determine the grade, length, fall and whether or not it is open. A logical primary key, based on the assumption that no Piste will be named the same, would be piesteName. This must be brought into First Normal Form (1NF) in order for this to work though.\\
+By using pisteName, we are assuming that no 2 Pistes are named the same. This could be modified were 2 Pistes named the same, by including another attribue and making a composite key. A candidate for this would be piesteName and length. This would be more likely unique. However, for the sake of this design we shall assume no 2 Pistes may be named the same.
+
+\subsubsection{Lift}
+\textbf{liftName -\textgreater  type, summit, rise, length, operating}
+\\[0.2cm]
+liftName implies all other attributes of the Lift. Assuming that no 2 lifts are named the same, we can accept liftName as an appropriate Primary Key. However, should it be that some Lifts are named the same, we could adapt this to make a composite key composed of liftName and length, giving the key a uniquely identifiable key. For this design however, we shall continue to assume no 2 lifts are named the same.
+
 \subsection{Unnormalized Structure}
 Based upon the sample data provided, the unnormalized structure of the Database is as follows:
 \\[0.2cm]
-\underline{piste}\newline
+\underline{pisteName}\newline
 grade\newline
 length\newline
 fall\newline
-lifts\newline
+liftName*\newline
 open\newline
-
+\\[0.2cm]
+\underline{liftName}\newline
+type\newline
+summit\newline
+rise\newline
+length\newline
+operating\newline
 
 \section{Normalizing the Data}
 
+To bring the Piste table into 1NF, we must remove the repeated groups of data (liftName). To do this, we create a new relation, "Connection". This relation contains the Primary Keys of both the Piste and Lifts, composing a composite key using the foreign keys of both. Resulting relations:
+\subsubsection{Piste}
+\begin{myitemize}
+\item\underline{pisteName}
+\item grade
+\item length
+\item fall
+\item open
+\end{myitemize}
+\subsubsection{Lift}
+\begin{myitemize}
+\item\underline{liftName}
+\item type
+\item summit
+\item rise
+\item length
+\item operating
+\end{myitemize}
+\subsubsection{Connection}
+\begin{myitemize}
+\item \underline{pisteName*} (from Piste)
+\item \underline{liftName*} (from Lift)
+\end{myitemize}
+
+The data is now in 1NF. Lift was already in 1NF as it had no repeating groups of data. The data is also in Second Normal Form (2NF) as it has only one Primary Key, and each of the attributes of the relations relies solely on this single Primary Key and not partially on something else.
 \section{PostgreSQL}
 
 
