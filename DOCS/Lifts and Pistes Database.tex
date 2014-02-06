@@ -90,20 +90,21 @@ James Euesden (jee22) &  Department of Computer Science \\
 
 \end{center}
 
-\newpage
+%%%\newpage
 
-\tableofcontents
+%%%\tableofcontents
 
 \newpage
 
 \section{Introduction}
-
+%%COMPOSE
 \section{Analysis}
 \subsection{Functional Dependencies}
 To see the functional dependencies, I made a number of assumptions about the data, based upon the sample data provided.
 \subsubsection{Piste}
  \textbf{pisteName -\textgreater  grade, length, fall, open}
 \\[0.1cm]
+%% REWRITE
 pisteName does not functionally determine the liftName, as liftName could be a number of things. It does, however, determine the grade, length, fall and whether or not it is open. A logical primary key, based on the assumption that no Piste will be named the same, would be piesteName. This must be brought into First Normal Form (1NF) in order for this to work though.\\
 By using pisteName, we are assuming that no 2 Pistes are named the same. This could be modified were 2 Pistes named the same, by including another attribue and making a composite key. A candidate for this would be piesteName and length. This would be more likely unique. However, for the sake of this design we shall assume no 2 Pistes may be named the same.
 
@@ -155,7 +156,7 @@ To bring the Piste table into 1NF, we must remove the repeated groups of data (l
 \item \underline{liftName*} (from Lift)
 \end{myitemize}
 
-The data is now in 1NF. Lift was already in 1NF as it had no repeating groups of data. The data is also in Second Normal Form (2NF) as it has only one Primary Key, and each of the attributes of the relations relies solely on this single Primary Key and not partially on something else.
+The data is now in 1NF. Lift was already in 1NF as it had no repeating groups of data. The data is also in Second Normal Form (2NF) as it has only one Primary Key, and each of the attributes of the relations relies solely on this single Primary Key and not partially on something else. Additionally to this, all non-key attributes rely upon the Primary Key to be determined, and so the data as is is already in Third Normal Form (3NF). This relational model is now ready to be put into a database.
 \section{PostgreSQL}
 
 
