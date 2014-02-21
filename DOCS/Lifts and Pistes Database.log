@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.11.26)  21 FEB 2014 13:07
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.11.26)  21 FEB 2014 14:27
 entering extended mode
 **Lifts*and*Pistes*Database.tex
 
@@ -466,12 +466,36 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks23
 \@floatcapt=\box28
 )
+(C:\Users\Narctiss\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
+\lst@mode=\count105
+\lst@gtempboxa=\box29
+\lst@token=\toks24
+\lst@length=\count106
+\lst@currlwidth=\dimen136
+\lst@column=\count107
+\lst@pos=\count108
+\lst@lostspace=\dimen137
+\lst@width=\dimen138
+\lst@newlines=\count109
+\lst@lineno=\count110
+\lst@maxwidth=\dimen139
+
+(C:\Users\Narctiss\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+\c@lstnumber=\count111
+\lst@skipnumbers=\count112
+\lst@framebox=\box30
+)
+(C:\Users\Narctiss\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+File: listings.cfg 2013/08/26 1.5b listings configuration
+))
+Package: listings 2013/08/26 1.5b (Carsten Heinz)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks24
+\@emptytoks=\toks25
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
@@ -491,6 +515,9 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (C:\Users\Narctiss\AppData\Roaming\MiKTeX\2.9\tex\latex\sectsty\sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
 les
+)
+(C:\Users\Narctiss\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
+File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
 (C:\Users\Narctiss\AppData\Roaming\MiKTeX\2.9\tex\latex\tocbibind\tocbibind.sty
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
@@ -541,18 +568,18 @@ Package tocloft Info: The document has section divisions on input line 44.
 )
 ("C:\Users\Narctiss\Documents\University Work\CS270\CS27020-Pistes-and-Lifts\DO
 CS\Lifts and Pistes Database.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
+LaTeX Font Info:    ... okay on input line 77.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -590,64 +617,85 @@ LaTeX Font Info:    ... okay on input line 72.
 
 (C:\Users\Narctiss\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count105
-\scratchdimen=\dimen136
-\scratchbox=\box29
-\nofMPsegments=\count106
-\nofMParguments=\count107
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count108
-\MPscratchDim=\dimen137
-\MPnumerator=\count109
-\makeMPintoPDFobject=\count110
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count113
+\scratchdimen=\dimen140
+\scratchbox=\box31
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen141
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks27
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 80.
+\c@lstlisting=\count119
+LaTeX Font Info:    Try loading font information for U+msa on input line 85.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 80.
+LaTeX Font Info:    Try loading font information for U+msb on input line 85.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 91.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 96.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
  [1{C:/Users/Narctiss/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 126.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 131.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 126.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 131.
  [2]
 LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/b/it' tried instead on input line 128.
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 133.
  [3] [4]
-[5] [6] [7] [8] [9]
+[5] [6] [7] [8] <IMG/create_tables.png, id=37, 765.86125pt x 377.41pt>
+File: IMG/create_tables.png Graphic file (type png)
+
+<use IMG/create_tables.png>
+Package pdftex.def Info: IMG/create_tables.png used on input line 309.
+(pdftex.def)             Requested size: 418.25368pt x 206.1134pt.
+
+<IMG/completed_tables.png, id=38, 757.83125pt x 216.81pt>
+File: IMG/completed_tables.png Graphic file (type png)
+
+<use IMG/completed_tables.png>
+Package pdftex.def Info: IMG/completed_tables.png used on input line 314.
+(pdftex.def)             Requested size: 418.25368pt x 119.6594pt.
+ [9]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 321.
+ [10 <C:/Users/Narctiss/Documents/University Work/CS270/CS27020-Pistes-and-Lift
+s/DOCS/IMG/create_tables.png (PNG copy)> <C:/Users/Narctiss/Documents/Universit
+y Work/CS270/CS27020-Pistes-and-Lifts/DOCS/IMG/completed_tables.png (PNG copy)>
+] [11] [12]
 ("C:\Users\Narctiss\Documents\University Work\CS270\CS27020-Pistes-and-Lifts\DO
 CS\Lifts and Pistes Database.aux") ) 
 Here is how much of TeX's memory you used:
- 5281 strings out of 493921
- 80953 string characters out of 3144866
- 166956 words of memory out of 3000000
- 8500 multiletter control sequences out of 15000+200000
+ 7200 strings out of 493921
+ 106214 string characters out of 3144866
+ 227253 words of memory out of 3000000
+ 10399 multiletter control sequences out of 15000+200000
  12004 words of font info for 44 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 50i,10n,54p,660b,220s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,11n,54p,660b,1844s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
@@ -659,9 +707,9 @@ sfonts/cm/cmss10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmss12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmti10.pfb>
-Output written on "Lifts and Pistes Database.pdf" (9 pages, 136293 bytes).
+Output written on "Lifts and Pistes Database.pdf" (12 pages, 211218 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
+ 83 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
