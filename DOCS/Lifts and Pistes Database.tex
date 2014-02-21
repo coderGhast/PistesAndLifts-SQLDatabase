@@ -316,30 +316,84 @@ CREATE TABLE connections (
 \end{figure}
 
 \subsection{Data Types Justification}
+Most data types have the contraint that they are 'NOT NULL'. When dealing with certain aspects of real data, such as a Piste or Lift, that definitely does have a specfic state (open/operating), specific numbers for lengths, rises and summits, and must have a name, I felt that NOT NULL should be included. There are no items in the sample data that have empty values for attributes.
 \subsubsection{Piste}
 \begin{itemize}
 \item piste\_uid - int NOT NULL
+The piste\_uid is kept as an integer to be a Unique Identification number. This way of using an integer allows it to be incremented for the number of values.
 \item piste\_name - varchar(50) UNIQUE NOT NULL 
+varchar allows the input of text, so the user can specify the name of the Lift. Setting the limit at 60 allows for a decent amount of characters without allowing unreasonable amounts. By using the constraint 'UNIQUE', it is enforcing the user to never have two of the same named Pistes.
 \item grade - grade\_rank NOT NULL
-\item length\_m - real NOT NULL
-\item fall\_km - integer NOT NULL
+I made a custom TYPE of ENUM for grade\_rank, allowing the user to select from the different types of ranks, and using an ENUM allows for future expansion on these grades if necessary.
+\item length\_km - real NOT NULL
+Using a real allows some floating point precision. Since the km is used to represent the length, where there can be numbers after the decimal, a real seemed appropriate to reprsent this data.
+\item fall\_m - integer NOT NULL
+A way to represent the fall as a whole number.
 \item open\_piste - boolean
+Since a piste can either be open or not open, a true/false boolean seemed appropriate to determine either/or.
 \end{itemize}
 
 \subsubsection{Lift}
 \begin{itemize}
 \item lift\_uid - int NOT NULL\\
-Integer because..
+The lift\_uid is kept as an integer to be a Unique Identification number. This way of using an integer allows it to be incremented for the number of values.
 \item lift\_name - varchar(60) UNIQUE NOT NULL
+varchar allows the input of text, so the user can specify the name of the Lift. Setting the limit at 60 allows for a decent amount of characters without allowing unreasonable amounts. By using the constraint 'UNIQUE', it is enforcing the user to never have two of the same named Lifts.
 \item lift\_type - type\_lift NOT NULL
+I made a custom TYPE of ENUM for lift\_type, allowing the user to select from the types of lift in the sample data, and using an ENUM allows for future expansion on types if necessary.
 \item summit\_m - integer NOT NULL
+A way to represent the summit as a whole number.
 \item rise\_m - integer NOT NULL
+A way to represent the rise as a whole number.
 \item length\_m - integer NOT NULL
+A way to represent the length as a whole number.
 \item operating - boolean
+Since a lift can either be operating or not operating, a true/false boolean seemed appropriate to determine either/or.
 \end{itemize}
 
 \subsection{Quering the Database}
+\subsubsection{Test Data}
 In order to test my data, I wrote the sample data into a typescript to insert it into my database. I will not include the typescript here. However, here are the contents of each relation after the insertion:
+
+
+Where you might see \textless and \textgreater in the Test Query typescripts, it should be assumed that here is where a value would go for the query. An example would be '\textless lift\_name \textgreater ' could be imagined to be 'Rastlift', or any other lift\_name, when executing the query.
+\subsubsection{Erronous Data Entry}
+In order to check that my database was working correctly, I conducted a series of tests where I attempted to INSERT incorrect data. Doing this confirmed that my database was robust and built as intended. Below are a series of screenshots and captions detailing my testing.
+
+\subsubsection{Test Query 1}
+"Return the pistes served by a given lift."
+\begin{lstlisting}
+SELECT * 
+FROM piste WHERE piste_uid IN 
+	(SELECT piste_uid
+		FROM connections WHERE lift_uid IN 
+	(SELECT lift_uid
+		FROM lift WHERE lift_name='<lift_name>'));
+\end{lstlisting}
+\subsubsection{Test Query 2}
+"Return the lift(s) that provide access to a given piste."
+\begin{lstlisting}
+SELECT * 
+FROM lift WHERE lift_uid IN 
+	(SELECT lift_uid 
+		FROM connections WHERE piste_uid IN 
+	(SELECT piste_uid 
+		FROM piste WHERE piste_name='<piste_name>'));
+\end{lstlisting}
+\subsubsection{Test Query 3}
+"Return the lifts that are currently operating."
+\begin{lstlisting}
+SELECT lift_name, operating 
+	FROM lift WHERE operating='t';
+\end{lstlisting}
+\subsubsection{Test Query 4}
+"Return the pistes that are currently open, together with the lifts that are currently operating and that provide access to those pistes."
+\begin{lstlisting}
+SELECT * FROM connections WHERE lift_uid IN
+	(SELECT lift_uid FROM lift WHERE operating='t')
+AND piste_uid IN
+	(SELECT piste_uid FROM piste WHERE open_piste='t');
+\end{lstlisting}
 \newpage
 
 \begin{thebibliography}{9}
