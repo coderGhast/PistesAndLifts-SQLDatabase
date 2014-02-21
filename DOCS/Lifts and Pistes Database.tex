@@ -73,8 +73,8 @@
 \newpage
 
 \begin{center}
-\textbf{\LARGE CS27020}\\[0.5cm]
-
+\textbf{\LARGE CS27020}\\[0.3cm]
+\textbf{\LARGE Modelling Persistent Data}\\[0.5cm]
 \textbf{\LARGE Assignment: Ski Lifts and Pistes }\\[13cm]
 
 \begin{tabular}{ l | r }
@@ -102,97 +102,83 @@ James Euesden (jee22) &  Department of Computer Science \\
 This task set is to build a relational database, using PostgreSQL. To begin this task, I have been provided with sample data of Pistes and Lifts, which must be viewed in Unnormalized Form (UNF), and then taken through the normalization process to reach Third Normal Form (3NF). This will be done by determining the Functional Dependencies, constructing Primary Keys and understanding other Candidate Keys, then using these to help with the normalization steps. With the resulting model, I will then create the Database, and provide suitable commands for conducting a series of queries on the database, with screenshot evidence.
 \section{Analysis}
 \subsection{Unnormalized Structure}
-An Unnormalized Structure is data that has not been Normalized. This is data that we might find in the 'real world' during situations where we are provided large quantities of data that, while it might make logical sense to a client, may not be appropriate to be implemented into a relational database.
+An Unnormalized Structure is data that has not been Normalized, or ready to be put safely and logically into a relational database. This is data that we might find in the 'real world' during situations where we are provided large quantities of data that, while it might make logical sense to a client, may not be appropriate to be implemented into a relational database.
 
-Based upon the sample data provided\cite{sample}, the unnormalized structure of the Database is as follows. A thing to initially note, is how 'liftName' is contained in the sample data for Piste, yet I have not included it within my functional dependencies. This is because of repeating data, where multiple Lifts can be in multiple Pistes, and visa versa. This will be dealt with during the normalization process.
+Based upon the sample data provided\cite{sample}, the unnormalized structure of the Database is as follows. A thing to initially note is how there appears to be some correlation between the data in 'rise' in Lift and 'fall' in Piste. However, this only happens for a few of the entries, and with multiple values in attributes, is not something to be taken into consideration.
 
 \subsubsection{Piste}
-pisteName\newline
+piste\_name\newline
 grade\newline
-length\newline
-fall\newline
-liftName\newline
-open
+length\_km\newline
+fall\_m\newline
+lif\_name\newline
+piste\_open
 
 \subsubsection{Lift}
-liftName\newline
+lift\_name\newline
 type\newline
-summit\newline
-rise\newline
-length\newline
-operating\newline
+summit\_m\newline
+rise\_m\newline
+length\_m\newline
+operating
 
 \subsection{Functional Dependencies}
 A functional dependency is where data relies depends upon another piece of data in order to be determined. This can be expressed as FD: X -\textgreater \space Y. To see the functional dependencies, I made a number of assumptions about the data, based upon the sample data provided.
 \subsubsection{Piste}
- \textbf{pisteName -\textgreater  grade, length, fall, open}
+ \textbf{piste\_name -\textgreater  grade, length\_km, fall\_m, piste\_open}
 \\[0.1cm]
-We assume that this information about a Piste is functionally dependant upon the pisteName, and this is how it should be accessed.
+We assume that this information about a Piste is functionally dependant upon the piste\_name, and this is how it should be accessed. Each attribute provides a 'fact' about the Piste, based on the piste\_name.
 
-\textbf{pisteName -\textgreater liftName}
+\textbf{piste\_name -\textgreater lift\_name}
 \\[0.1cm]
-In order to find the name of Lifts (liftName) of a Piste, we must know the pisteName.
+In order to find the name of Lifts (lift\_name) servicing a Piste, we must know the piste\_name. However, it should be noted that Lift is in itself it's own relation. On top of this, a Lift can serve many Pistes, and so it should be noted that this could also be expressed as:\\[0.1cm]
+\textbf{piste\_name \textless -\textgreater \space lift\_name}
 
-As a side note, there is an interesting relationship between 'Fall' in Piste and 'Rise' in Lift.
 \subsubsection{Lift}
-\textbf{liftName -\textgreater  type, summit, rise, length, operating}
+\textbf{lift\_name -\textgreater  type, summit\_m, rise\_m, length\_m, operating}
 \\[0.2cm]
-Similar to Piste, we assume that the data about a Lift is functionally dependant upon liftName.
-\newpage
+Similar to Piste, we assume that the data about a Lift is functionally dependant upon lift\_name. Each of these items is functionally dependant on the lift\_name, and gives data, a 'fact', about a Lift.
 
 \subsection{Primary \& Candidate Keys}
-A Primary Key (PK) is a key that is unique to each record in a relation, and that will never be repeated in the data set. This key can be a single attribute, or a composite key, comprised of multiple attributes. This key is used as the unique identifier of a relation. When picking a Primary Key, there will be a number of Candidate Keys (CK) that could also be used, but may not be as suitable.
-\subsubsection{Piste}
-Primary Key selection: \underline{pisteName, length, fall}\\
-As a key, these three values are strong, as they are the most likely be unique and unlikely to be changed. It could be safely assumed that even if another Piste was named the same, it would not have the same length and fall.\\[0.2cm]
-Candidate Keys, and why they are inappropriate:
-\begin{itemize}[]
-\item pisteName - Potential for more than one Piste to be named the same.
-\item piesteName, length - As above, and could have the same length. Unlikely, but possible.
-\item pisteName, fall - As above.
-\item pisteName, grade - As above.
-\item pisteName, grade, length, fall, open - Strong, but 'open' may change often. a PK should attempt to be static and unchanging. This many attributes is also not required when a smaller key can be made.
-\end{itemize}
+A Primary Key (PK) is a key that is unique to each record in a relation, and that will never be repeated in the data set. This key can be a single attribute, or a composite key, comprised of multiple attributes. This key is used as the unique identifier of a relation. When picking a Primary Key, it must conform to being unique to that relation, while also being as unchaging as possible (immutable - could change, but shouldn't) and there may also be Candidate Keys.
 
-\subsubsection{Lift}
-Primary Key selection: \underline{liftName, summit, rise}\\
-As with Piste, I have selected three attributes for the List Primary Key, based on similar reasons. It is possible, yet unlikely, that two Lifts could be named the same, or named the same and have the same summit or rise, but unlikely to share all three attributes. These are attributes are also unlikely to change.\\[0.2cm]
-Candidate Keys, and why they are inappropriate:
-\begin{itemize}[]
-\item liftName - Potential for more than one Piste to be named the same.
-\item liftName, type - As above, they could be of the same type.
-\item liftName, summit - Two same named Lifts could have the same summit. Unlikely but possible.
-\item liftName, rise - As above.
-\item liftName, length - As above.
-\item liftName, type, summit, rise, length, operating - All attributes as a composite PK is a potential choice, and will likely be unique, but is also perhaps too many attributes. It is also possible that 'operating' will change during the course of time. Continuing with trying to keep PKs static and unchanging, it would be best to not use this.
-\end{itemize}
+When deciding the Primary Keys for these relations, I found it challenging to decide the correct course of action. My initial thought was to use the piste\_name and lift\_name. However, while these are likely to be unique, it is also possible that in the future, a user may want to change or update the names, causing potential update issues. With this in mind, my choice was to make an auto-incremented integer value for both Piste and Lift in order to represent a unique identification number. These are Piste(piste\_uid) and Lift(lift\_uid).
+
+This choice to use a UID means that a user has the freedom of adding a number of different Pistes, while still giving them the ability to alter the names of a Piste at a later date. With this considered, I decided to continue using piste\_name and lift\_name as Candidate Keys. This means that while they are not the true Primary Key, they are a Candidate for it, and it should be noted along with the functional dependencies when running the normalization process.
+
+ It could be considered that now piste\_name and all it's functionally dependant attributes are now all functionally dependent upon piste\_uid, and the same for Lift. Since the name values are staying as Candidate keys, and the UID is merely for unique representaton purposes though, the original functional dependencies still hold.
+
+
+As an extra precaution when creating the database, I will constrain the lift\_name and piste\_name to be unique, enforcing the rule that no two Pistes or Lifts should be named the same, but their names are free for change.
 
 \newpage
 
 \section{Normalizing the Data}
-When normalizing this data, I will be dealing with each relation (Piste, Lift) separately, without an account of what the other relation's state is, and will bring them together when it seems appropriate.
+When normalizing this data, I will be dealing with each relation (Piste, Lift) separately, and will bring them together when it seems appropriate.
 \subsection{First Normal Form}
-The act of taking data from UNF into 1NF is by disallowing attributes to have multiple values. This means that an attribute could not contain two values, such as 2 phone numbers for one person. In the sample data provided, it can be seen that within 'Piste', there are multiple values in 'liftName'. This violates 1NF rule.
+The act of taking data from UNF into 1NF is by disallowing attributes to have multiple values. This means that an attribute could not contain two values, such as 2 phone numbers for one person. In the sample data provided, it can be seen that within 'Piste', there are multiple values in 'lift\_name'. This violates 1NF rule.
 
-In order to solve this, we can move liftName out of the Piste and into a new relation, 'Connection'. This new relation contains the Primary Key of Piste and the attribute liftName. Piste no longer contains liftName, while otherwise staying the same. This brings Piste into 1NF.
+In order to solve this, we can move lift\_name out of the Piste and into a new relation, 'Connection'. This new relation contains the Primary Key of Piste and the attribute lift\_name. Piste no longer contains lift\_name, while otherwise staying the same. This brings Piste into 1NF.
 
-Lift does not have any multiple values within it's attributes, nor could it be assigned any in the future. This means that Lift is already in 1NF and does not need anything doing. There are no more sets of multiple values in Lift or Piste, and Connection is also acceptable at this stage.
+Lift does not have any multiple values within it's attributes, nor could it be assigned any in the future. This means that Lift is already in 1NF and does not need anything doing. There are no more sets of multiple values in Lift or Piste, and Connection is also acceptable, at this stage.
 
 The end result of the 1NF operations are below, with the current three relations shown. Those attributes \underline{underlined} represent Primary Key components. Those attributes with an asterisk (\*) are foreign keys. These relations still have some anomalies however, that will be dealt with in 2NF.
 
 \subsubsection{Piste}
-\underline{pisteName}\newline
-\underline{length}\newline
-\underline{fall}\newline
+\underline{piste\_uid}\newline
+piste\_name\newline
 grade\newline
+length\_km\newline
+fall\_m\newline
 open
 
 \subsubsection{Lift}
-\underline{liftName}\newline
-\underline{summit}\newline
-\underline{rise}\newline
+\underline{lift\_uid}\newline
+liftName\newline
 type\newline
-length\newline
+summit\_m\newline
+rise\_m\newline
+length\_m\newline
 operating
 
 \subsubsection{Connection}

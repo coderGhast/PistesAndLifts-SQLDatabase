@@ -47,71 +47,187 @@ INSERT INTO lift (lift_name, lift_type, summit_m, rise_m, length_m, operating) V
 	('Almlift', 'TOW', 2250, 370, 1180, false);
 
 -- INSERT INTO the connections relation
-INSERT INTO connections (piste_uid, lift_uid) VALUES
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Zwischenholzabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Schoenjochbahn I')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Zwischenholzabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='ESL-Fiss-Moeseralm')),
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Zwischenholzabfahrt'
+	AND lift_name='Schoenjochbahn I';
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Zwischenholzabfahrt'
+	AND lift_name='ESL-Fiss-Moeseralm';
+	
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Moeseralmabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='ESL-Fiss-Moeseralm')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Moeseralmabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Rastlift')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Moeseralmabfahrt'
+	AND lift_name='ESL-Fiss-Moeseralm';
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Moeseralmabfahrt'
+	AND lift_name='Rastlift';
+	
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Schoenjochabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Schoenjochbahn II')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Schoenjochabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Plazoerlift')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Schoenjochabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Schoenjochlift')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Schoenjochabfahrt'
+	AND lift_name='Schoenjochbahn II';
+
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Schoenjochabfahrt'
+	AND lift_name='Plazoerlift';
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Schoenjochabfahrt'
+	AND lift_name='Schoenjochlift';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Sattelkopf-Suedabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Waldlift')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Sattelkopf-Suedabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Sattelkopflift')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Sattelkopf-Suedabfahrt'
+	AND lift_name='Waldlift';
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Sattelkopf-Suedabfahrt'
+	AND lift_name='Sattelkopflift';
+	
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Sattelkopf-Nordabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Sattelkopflift')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Sattelkopf-Nordabfahrt'
+	AND lift_name='Sattelkopflift';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Moeserabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Moeserlift')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Moeserabfahrt'
+	AND lift_name='Moeserlift';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Wonneabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Schoenjochbahn I')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Wonneabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Wonnelift')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Wonneabfahrt'
+	AND lift_name='Schoenjochbahn I';
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Wonneabfahrt'
+	AND lift_name='Wonnelift';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Rastabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Rastlift')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Rastabfahrt'
+	AND lift_name='Rastlift';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Waldabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Waldlift')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Waldabfahrt'
+	AND lift_name='Waldlift';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Ladisabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='ESL-Ladis-Fiss')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Ladisabfahrt'
+	AND lift_name='ESL-Ladis-Fiss';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Verbindungsabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Schoenjochbahn I')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Verbindungsabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Wonnelift')),
+
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Verbindungsabfahrt'
+	AND lift_name='Schoenjochbahn I';
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Verbindungsabfahrt'
+	AND lift_name='Wonnelift';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Plazoerabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Schoenjochbahn II')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Plazoerabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Plazoerlift')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Plazoerabfahrt'
+	AND lift_name='Schoenjochbahn II';
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Plazoerabfahrt'
+	AND lift_name='Plazoerlift';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Schoengampabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Schoengamplift')),
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Schoengampabfahrt'
+	AND lift_name='Schoengamplift';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Schoenjochpiste'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Schoenjochbahn II')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Schoenjochpiste'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Plazoerlift')),
+
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Schoenjochpiste'
+	AND lift_name='Schoenjochbahn II';
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Schoenjochpiste'
+	AND lift_name='Plazoerlift';
+
 	-----
-	((SELECT piste_uid FROM piste WHERE piste_name='Almabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Schoenjochbahn II')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Almabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Plazoerlift')),
-	((SELECT piste_uid FROM piste WHERE piste_name='Almabfahrt'),
-	(SELECT lift_uid FROM lift WHERE lift_name='Almlift'));
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Almabfahrt'
+	AND lift_name='Schoenjochbahn II';
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Almabfahrt'
+	AND lift_name='Plazoerlift';
+	
+INSERT INTO connections
+	SELECT piste_uid, piste_name, lift_uid, lift_name
+	FROM piste, lift
+	WHERE piste_name='Almabfahrt'
+	AND lift_name='Almlift';
