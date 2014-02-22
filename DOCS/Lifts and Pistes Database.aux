@@ -21,17 +21,33 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Third Normal Form}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}PostgreSQL}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Creating the tables}{8}}
+\@writefile{lol}{\contentsline {lstlisting}{../SQL/create.sql}{8}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The output when creating tables.\relax }}{10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The list of relations after running the create typescript.\relax }}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Data Types Justification}{10}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Piste}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Piste}{11}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Lift}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Quering the Database}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Test Data}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Erronous Data Entry}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Test Query 1}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}Test Query 2}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5}Test Query 3}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.6}Test Query 4}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Checking the Database}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Sample Data}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The contents of the Piste table.\relax }}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The contents of the Lift table.\relax }}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The contents of the Connections table.\relax }}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Erronous Data Entry}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces An entry cannot have the same piste\_name as an already existing Piste - UNIQUE constraint. The item can be renamed, but should not share the same name with another of it's type.\relax }}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces An entered Grade should conform to an existing ENUM value. 'SUPERDIFFICULT' is not an existing ENUM value in this database.\relax }}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces If a value is attempted to be entered as NULL, it will be rejected, as values are specific and so should not be recorded into the database as such. This violates the constraint and would potentially cause issues in the databases lifecycle, such as causing errors in queries that might attempt to assess NULL data.\relax }}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces If a numeric value is attempted to be entered as negative, the operation is cancelled, the user is informed of their mistake and through the use of CONSTRAINT, is told where their mistake is and why. When looking at the sample data, there are no negative numbers. Know what information the data provides shows that there should never be negative values.\relax }}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Test Queries}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Test Query 1}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces The result of looking for the Pistes serviced by the Lift: 'Schoenjochbahn I'.\relax }}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces The result of looking for the Pistes serviced by the Lift: 'Moeserlift'.\relax }}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Test Query 2}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces The result of looking for the Lifts servicing the Piste: 'Zwischenholzabfahrt'.\relax }}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces The result of looking for the Lifts servicing the Piste: 'Almabfahrt'.\relax }}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}Test Query 3}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces The Lifts that are currently operating.\relax }}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.4}Test Query 4}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces The Lifts that are currently operating.\relax }}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{19}}
 \bibcite{sample}{1}
-\@writefile{toc}{\contentsline {section}{References}{14}}
+\@writefile{toc}{\contentsline {section}{References}{21}}

@@ -18,7 +18,7 @@ INSERT INTO piste (piste_name, grade, length_km, fall_m, open_piste) VALUES
 	('Moeseralmabfahrt', 'MEDIUM', 2.5, 400, false),
 	('Schoenjochabfahrt', 'MEDIUM', 4, 510, true),
 	('Sattelkopf-Suedabfahrt', 'MEDIUM', 4, 350, true),
-	('Sattelkopf-Nordabfahrt', 'MEDIUM', 1.5, 220, true),
+	('Sattelkopf-Nordabfahrt', 'DIFFICULT', 1.5, 220, true),
 	('Moeserabfahrt', 'EASY', 0.5, 80, true),
 	('Wonneabfahrt', 'MEDIUM', 1.5, 280, false),
 	('Rastabfahrt', 'MEDIUM', 1, 150, false),
@@ -49,13 +49,13 @@ INSERT INTO lift (lift_name, lift_type, summit_m, rise_m, length_m, operating) V
 -- INSERT INTO the connections relation
 	-----
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Zwischenholzabfahrt'
 	AND lift_name='Schoenjochbahn I';
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Zwischenholzabfahrt'
 	AND lift_name='ESL-Fiss-Moeseralm';
@@ -63,13 +63,13 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Moeseralmabfahrt'
 	AND lift_name='ESL-Fiss-Moeseralm';
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Moeseralmabfahrt'
 	AND lift_name='Rastlift';
@@ -77,19 +77,19 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Schoenjochabfahrt'
 	AND lift_name='Schoenjochbahn II';
 
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Schoenjochabfahrt'
 	AND lift_name='Plazoerlift';
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Schoenjochabfahrt'
 	AND lift_name='Schoenjochlift';
@@ -97,13 +97,13 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Sattelkopf-Suedabfahrt'
 	AND lift_name='Waldlift';
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Sattelkopf-Suedabfahrt'
 	AND lift_name='Sattelkopflift';
@@ -111,7 +111,7 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Sattelkopf-Nordabfahrt'
 	AND lift_name='Sattelkopflift';
@@ -119,7 +119,7 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Moeserabfahrt'
 	AND lift_name='Moeserlift';
@@ -127,13 +127,13 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Wonneabfahrt'
 	AND lift_name='Schoenjochbahn I';
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Wonneabfahrt'
 	AND lift_name='Wonnelift';
@@ -141,7 +141,7 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Rastabfahrt'
 	AND lift_name='Rastlift';
@@ -149,7 +149,7 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Waldabfahrt'
 	AND lift_name='Waldlift';
@@ -157,7 +157,7 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Ladisabfahrt'
 	AND lift_name='ESL-Ladis-Fiss';
@@ -165,13 +165,13 @@ INSERT INTO connections
 	-----
 
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Verbindungsabfahrt'
 	AND lift_name='Schoenjochbahn I';
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Verbindungsabfahrt'
 	AND lift_name='Wonnelift';
@@ -179,13 +179,13 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Plazoerabfahrt'
 	AND lift_name='Schoenjochbahn II';
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Plazoerabfahrt'
 	AND lift_name='Plazoerlift';
@@ -193,7 +193,7 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Schoengampabfahrt'
 	AND lift_name='Schoengamplift';
@@ -201,13 +201,13 @@ INSERT INTO connections
 	-----
 
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Schoenjochpiste'
 	AND lift_name='Schoenjochbahn II';
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Schoenjochpiste'
 	AND lift_name='Plazoerlift';
@@ -215,19 +215,19 @@ INSERT INTO connections
 	-----
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Almabfahrt'
 	AND lift_name='Schoenjochbahn II';
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Almabfahrt'
 	AND lift_name='Plazoerlift';
 	
 INSERT INTO connections
-	SELECT piste_uid, piste_name, lift_uid, lift_name
+	SELECT piste_uid, lift_uid
 	FROM piste, lift
 	WHERE piste_name='Almabfahrt'
 	AND lift_name='Almlift';
