@@ -29,7 +29,8 @@ SELECT lift_name, operating
 	FROM lift WHERE operating='t';
 
 -- SELECT the Pistes that are currently open, together with the lifts that are currently operating and that provide access to those pistes.
-SELECT pistes.piste_uid, pistes.piste_name, pistes.open_piste, lifts.lift_uid, lifts.lift_name, lifts.operating
+SELECT pistes.piste_uid, pistes.piste_name, pistes.open_piste, 
+lifts.lift_uid, lifts.lift_name, lifts.operating
 FROM
 	connections conns
 		INNER JOIN piste pistes

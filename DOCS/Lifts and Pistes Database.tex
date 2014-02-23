@@ -104,42 +104,45 @@ James Euesden (jee22) &  Department of Computer Science \\
 \newpage
 
 \section{Introduction}
-The task set is to build a relational database, using PostgreSQL, based upon Pistes and Lifts. To begin this task, I have been provided with sample data of Pistes and Lifts, which must be viewed in Unnormalized Form (UNF), and then taken through the normalization process to reach Third Normal Form (3NF). This will be done by determining the Functional Dependencies, constructing Primary Keys and understanding other Candidate Keys, then using these to help with the normalization steps.
+The task set for this assignment was to build a relational database, using PostgreSQL, based upon Pistes and Lifts. To begin this task, I was provided with sample data of Pistes and Lifts, which must be viewed in Unnormalized Form (UNF), and then taken through the normalization process to reach Third Normal Form (3NF). This had to be done by determining the Functional Dependencies, selecting Primary Keys and Candidate Keys, then using these to help with the normalization steps.
 
-With the resulting model, I will then create the Database in PostgreSQL. Provided along with the sample data were a number of queries than must be exectured upon the completed database. These queries must show the database working, and support the design and functional dependencies determined in my analysis. Evidence of this will be given through screenshots and the typescripts of the SQL queries to create and select the data.
+With the resulting model, I then had to create an appropriate database in PostgreSQL. Provided with the sample data was a number of queries requests that had to be written. These queries had to show the database working, and evidence of their correct operation would support the design and functional dependencies determined in my analysis. The evidence of this testing was to be provided in a series of screenshots and typescripts of the SQL commands.
+
 \section{Analysis}
 \subsection{Unnormalized Structure}
-An Unnormalized Structure is data that has not yet been Normalized, or ready to be put safely and logically into a relational database. This is data that we might find in the 'real world' during situations where we are provided large quantities of data that, while it might make logical sense to a client, may not be appropriate to be implemented into a relational database and cause issues during use.
+An Unnormalized Structure/Form (UNF) is data that has not yet been Normalized, or ready to be put safely and logically into a relational database. This is data that we might find in the 'real world', during situations where we are provided large quantities of data that, while it might make logical sense to a client, may not be appropriate to be implemented into a relational database and cause issues during use.
 
-Based upon the sample data provided\cite{sample}, the unnormalized structure of the Database is as follows. A thing to initially note is how there appears to be some correlation between the data in 'rise' in Lift and 'fall' in Piste. However, this only happens for a few of the entries, and with multiple values in attributes, is not something to be taken into consideration.
+The sample data provided\cite{sample} involed the attributes of Pistes, and Lifts that serviced those Pistes. Each of these items had attributes about them, and are displayed in my UNF below. A thing I initially noted is how there appeared to be some correlation between the data in 'rise' in Lift and 'fall' in Piste. However, this only happens for a few of the entries, and often occurs where there are multiple values in records, leaving no true connection between these two.\\[0.3cm]
+The UNF Data:
 
 \subsubsection{Piste}
-piste\_name\newline
-grade\newline
-length\_km\newline
-fall\_m\newline
-lift\_name\newline
-piste\_open
+Piste (piste\_name)\newline
+Grade (grade)\newline
+Length(Km) (length\_km)\newline
+Fall (m) (fall\_m)\newline
+Lifts (lift\_name)\newline
+Open? (piste\_open)
 
 \subsubsection{Lift}
-lift\_name\newline
-lift\_type\newline
-summit\_m\newline
-rise\_m\newline
-length\_m\newline
-operating
+Lift (lift\_name)\newline
+Type (lift\_type)\newline
+Summit (m) (summit\_m)\newline
+Rise (m) (rise\_m)\newline
+Length (m) (length\_m)\newline
+Operating (operating)
 
 \subsection{Functional Dependencies}
-A functional dependency is where data relies depends upon another piece of data in order to be determined. This can be expressed as FD: X -\textgreater \space Y. If we know what 'X' is, we can find out the value of 'Y' from it. To see the functional dependencies, I made a number of assumptions about the data, based upon the sample data provided.
+A functional dependency is where data depends upon another piece of data in order to be determined. This can be expressed as FD: X -\textgreater \space Y. If we know what 'X' is, we can find out the value of 'Y' from it. To see the functional dependencies, I made a number of assumptions about the data, based upon the sample data provided.
 \subsubsection{Piste}
 \textbf{piste\_name -\textgreater \space grade, length\_km, fall\_m, piste\_open}
 \\[0.1cm]
-We assume that this information about a Piste is functionally dependant upon the piste\_name, and this is how it should be accessed. Each attribute provides a 'fact' about the Piste, based on the piste\_name.\\[0.1cm]
+We assume that the data describing a Piste (grade, length, fall and open) are functionally dependant upon the piste\_name, and this is how it should be accessed. Each attribute provides a 'fact' about the Piste, based on the piste\_name.\\[0.1cm]
 \textbf{piste\_name -\textgreater \space lift\_name}
 \\[0.1cm]
-In order to find the name of Lifts (lift\_name) servicing a Piste, we must know the piste\_name. However, it should be noted that Lift is in itself it's own relation. On top of this, a Lift can serve many Pistes, and so it should be noted that this could also be expressed as:\\[0.1cm]
-\textbf{piste\_name \textless -\textgreater \space lift\_name}\\
-Where we can find the Pistes connected to a Lift, or the Lifts servicing a Piste.
+In order to find the name of Lifts (lift\_name) servicing a Piste, we must know the piste\_name. However, it should be noted that Lift is in itself it's own relation. On top of this, a Lift can serve many Pistes (Many-to-Many), and so it should be noted that this could also be expressed as:\\[0.1cm]
+\textbf{piste\_name -\textgreater \space lift\_name}\\
+\textbf{lift\_name -\textgreater \space piste\_name}\\
+Where we can find the Pistes connected to a Lift, or the Lifts servicing a Piste. This does not come into effect until our Normalization process however. It should be noted now though, for use later.
 
 \subsubsection{Lift}
 \textbf{lift\_name -\textgreater \space lift\_type, summit\_m, rise\_m, length\_m, operating}
@@ -147,7 +150,7 @@ Where we can find the Pistes connected to a Lift, or the Lifts servicing a Piste
 Similar to Piste, we assume that the data about a Lift is functionally dependant upon lift\_name. Each of these items is functionally dependant on the lift\_name, and gives data, a 'fact', about a Lift. If we know the name of a Lift, we can get the other data associated with it.
 
 \subsection{Primary \& Candidate Keys}
-A Primary Key (PK) is a key that is unique to each record in a relation, and that will never be repeated in the data set. This key can be a single attribute, or a composite key, comprised of multiple attributes. This key is used as the unique identifier of a relation. When picking a Primary Key, it must conform to being unique to that relation, while also being as unchaging as possible (immutable - could change, but shouldn't) and there may also be Candidate Keys.
+A Primary Key (PK) is a key that is unique to each record in a relation, and that will never be repeated in the data set. This key can be a single attribute, or a composite key, comprised of multiple attributes. This key is used as the unique identifier of a relation. When picking a Primary Key, it must conform to being unique to that relation, while also being as unchaging as possible (immutable - could change, but shouldn't).
 
 When deciding the Primary Keys for these relations, I found it challenging to decide the correct course of action. My initial thought was to use the piste\_name and lift\_name. However, while these are likely to be unique, it is also possible that in the future a user may want to change or update the names, causing potential update issues. With this in mind, my choice was to make an auto-incremented integer value for both Piste and Lift in order to represent a Unique Identification number. These are Piste(piste\_uid) and Lift(lift\_uid).
 
@@ -199,14 +202,16 @@ operating
 \subsubsection{Connection}
 \underline{piste\_uid*}\newline
 lift\_name*\\[0.3cm]
-(piste\_uid* references piste\_uid from relation Piste)\\
-(lift\_name* references lift\_name from relation Lift)
+(Foreign key piste\_uid* references piste\_uid from relation Piste)\\
+(Foreign key lift\_name* references lift\_name from relation Lift)
 
 \subsection{Second Normal Form}
-Achieving Second Normal Form relies upon two things, the first being that 1NF is already achieved, the second being that every non-Primary Key attribute of the relation is dependent on the whole of a candidate key. As we can see from the new relation 'Connection', lift\_name is not wholly dependent upon 'piste\_uid'. It is dependent upon lift\_uid too.
+Achieving Second Normal Form relies upon two things, the first being that 1NF is already achieved, the second being that every non-Primary Key attribute of the relation is dependent on the whole of a candidate key. As we can see from the new relation 'Connection', lift\_name is not wholly dependent upon 'piste\_uid'. It is dependent upon lift\_uid in the functional dependencies.
 
-With this in mind, the structure of Connections should instead be a representing a Many-to-Many relationship, with a full Primary Key comprised of the two foreign keys 'piste\_uid' and 'lift\_uid'. This results in no non-key attributes within Connections, and the Primary Key supporting the link between Lift and Piste. The three relations now only have non-key attributes that do solely rely upon the Candidate Keys, and all are valid for 2NF.\\[0.3cm]
-The new current database strucutre now looks like this:
+With this in mind, the structure of Connections should instead be representing a Many-to-Many relationship, with a full Primary Key comprised of the two foreign keys 'piste\_uid' and 'lift\_uid', and removing lift\_name from 'Connections' entirely.
+
+This results in no non-key attributes within Connections, and the Primary Key UIDs supporting the link between Lift and Piste. The three relations now only have non-key attributes that do solely rely upon the Candidate Keys, and all are valid for 2NF.\\[0.3cm]
+The new form of the relations now looks like this:
 
 \subsubsection{Piste}
 \underline{piste\_uid}\newline
@@ -228,15 +233,15 @@ operating
 \subsubsection{Connection}
 \underline{piste\_uid*}\newline
 \underline{lift\_uid*}\\[0.3cm]
-(piste\_uid* references piste\_uid from relation Piste)\\
-(lift\_uid* references lift\_uid* from relation Lift)
+(Foreign key piste\_uid* references piste\_uid from relation Piste)\\
+(Foreign key lift\_uid* references lift\_uid* from relation Lift)
 
 \subsection{Third Normal Form}
-For a database to be valid for Third Normal Form, it must first conform to 2NF, and also have no transitive dependencies. This requires that all non-key attributes rely upon only the PK, and nothing but the key, providing a fact about the PK and nothing else. 
+For a database to be valid for Third Normal Form, it must first conform to 2NF, and also have no transitive dependencies. A transitive dependencies is where an attribute relies on only partial of the Primary Key. It can be described that all non-key attributes rely upon only the PK, and nothing but the PK, providing a fact about the PK and nothing else. 
 
 If we look at our current relations, we can see that this is already the case, where each attribute of data provides a fact about the PK.
 
-Each attributes relies soley upon the Primary Key of its relation, and provides a fact about that Primary Key, providing no information about any other aspect of the database or of itself. From all this, we can see that Lift has been in 3NF throughout the whole process, and the database structure is the same as it was in 2NF.
+Each attributes relies soley upon the Primary Key of its relation, and provides a fact about that whole Primary Key, providing no information about any other aspect of the database or of itself. From all this, we can see that Lift has been in 3NF throughout the whole process, and the database structure does not need to change further. The structure is now in 3NF.
 
 \newpage
 
@@ -260,42 +265,46 @@ The typescript for creating the database:
 \end{figure}
 
 \subsection{Data Types Justification}
-Most data types have the contraint that they are 'NOT NULL'. When dealing with certain aspects of real data, such as a Piste or Lift, that definitely do have a specfic data, I felt that NOT NULL should be included. There are no items in the sample data that have empty values for attributes. I felt that having the majority of attributes constrain to not null ensures that data is correctly input into the table, avoiding potential issues with updates and missing data for future users.
+For each of the attributes, I carefully selected particular data types that I felt would best represent them. On each data type, I have constrained the type or amount of data that they can take in order to reduce the potential for issues in the databases use. I feel confident in my choices for data types in that they represent the data from the real world as best as they can within my structure.
 
-For those attributes which are numbers, I have also chosen to constrain them to being greater than 0. Doing this ensures that a user cannot enter negative values for those particular numbers. Each of these has also been named using the CONSTRAINT command, in order to better inform the user of where their error lies.
-\subsubsection{Piste}
+Most data types have the contraint that they are 'NOT NULL'. When dealing with certain aspects of real data, such as a Piste or Lift, that definitely do have a specfic data, I felt that NOT NULL should be included. There are no items in the sample data that have empty values for attributes. I felt that having the majority of attributes constrain to not null ensures that data is correctly input into the table, avoiding potential issues with updates and missing data for future users. This helps to ensures the integrity of the data throughout it's lifetime.
+
+For those attributes which are numbers, I have also chosen to constrain them to being greater than 0. Doing this stops a user from being allowed to enter negative values. Each of these has also been named using the CONSTRAINT command, in order to better inform the user of where their error lies, such as 'rise\_must\_be\_positive'. These help a user who may have made a slight typing error see where they have gone wrong in an informative error message.
+\subsubsection{Piste Data Types}
 \begin{itemize}
 \item piste\_uid - int NOT NULL\\
-The piste\_uid is kept as an integer to be a Unique Identification number. This way of using an integer allows it to be incremented for the number of values.
+The piste\_uid is kept as an integer to be a Unique Identification number. This way of using an integer allows it to be incremented for the number of records entered.
 \item piste\_name - varchar(50) UNIQUE NOT NULL PRIMARY KEY\\
-varchar allows the input of text, so the user can specify the name of the Lift. Setting the limit at 50 allows for a decent amount of characters without allowing unreasonable amounts. By using the constraint 'UNIQUE', it is enforcing the user to never have two of the same named Pistes.
+varchar allows the input of text, so the user can specify the name of the Piste. Setting the limit at 50 allows for a decent amount of characters without allowing unreasonable amounts. By using the constraint 'UNIQUE', it is enforcing the user to never have two of the same named Pistes.
 \item grade - grade\_rank NOT NULL\\
-I made a custom TYPE of ENUM for grade\_rank, allowing the user to select from the different types of ranks, and using an ENUM allows for future expansion on these grades if necessary.
+I made a custom TYPE of ENUM for grade\_rank, allowing the user to select from the different types of ranks, and using an ENUM allows for future expansion on these grades if necessary. I based the choices of ranks on those provided in the sample data: Easy, Medium, Hard, Difficult.
 \item length\_km - real NOT NULL CHECK (length\_km \textgreater \space 0)\\
-Using a real allows some floating point precision. Since the km is used to represent the length, where there can be numbers after the decimal, a real seemed appropriate to reprsent this data.
+Using a real allows some floating point precision. Since the km is used to represent the length, where there can be numbers after the decimal, a real seemed appropriate to reprsent this data. Example: 4.5km.
 \item fall\_m - integer NOT NULL CHECK (fall\_m \textgreater \space 0)\\
-A way to represent the fall as a whole number.
+A way to represent the fall as a whole number in meters.
 \item open\_piste - boolean NOT NULL\\
 Since a piste can either be open or not open, a true/false boolean seemed appropriate to determine either/or.
 \end{itemize}
 
-\subsubsection{Lift}
+\subsubsection{Lift Data Types}
 \begin{itemize}
 \item lift\_uid - int NOT NULL\\
-The lift\_uid is kept as an integer to be a Unique Identification number. This way of using an integer allows it to be incremented for the number of values.
+The lift\_uid is kept as an integer to be a Unique Identification number. This way of using an integer allows it to be incremented for the number of records entered.
 \item lift\_name - varchar(60) UNIQUE NOT NULL\\
 varchar allows the input of text, so the user can specify the name of the Lift. Setting the limit at 60 allows for a decent amount of characters without allowing unreasonable amounts. By using the constraint 'UNIQUE', it is enforcing the user to never have two of the same named Lifts.
 \item lift\_type - type\_lift NOT NULL\\
-I made a custom TYPE of ENUM for lift\_type, allowing the user to select from the types of lift in the sample data, and using an ENUM allows for future expansion on types if necessary.
+I made a custom TYPE of ENUM for lift\_type, allowing the user to select from the types of lift in the sample data, and using an ENUM allows for future expansion on types if necessary. I based the choices of ranks on those provided in the sample data: Gondola, Tow and Chair.
 \item summit\_m - integer NOT NULL CHECK (summit\_m \textgreater \space 0)\\
-A way to represent the summit as a whole number.
+A way to represent the summit as a whole number in meters.
 \item rise\_m - integer NOT NULL CHECK (rise\_m \textgreater \space 0)\\
-A way to represent the rise as a whole number.
+A way to represent the rise as a whole number in meters.
 \item length\_m - integer NOT NULL CHECK (length\_m \textgreater \space 0)\\
-A way to represent the length as a whole number.
+A way to represent the length as a whole number in meters.
 \item operating - boolean NOT NULL\\
 Since a lift can either be operating or not operating, a true/false boolean seemed appropriate to determine either/or.
 \end{itemize}
+
+The data types from Connection are the same as those that they Reference, and so the justification of there choices is already included. The attributes comprise the Primary Key as Foreign Keys, and are piste\_uid and lift\_uid.
 
 \newpage
 \subsection{Checking the Database}
@@ -357,10 +366,11 @@ It should be noted that where you might see \textless \space and \textgreater in
 
 For queries where it requires multiple queries from multiple tables, I have opted to use 'INNER JOIN', to connect my relations together in order to access the data. I felt that by explicitly stating that I wished to use INNER JOIN, as opposed to having an implied JOIN, was much more robust.
 
-Using the INNER JOIN should improve performance of the database over and implied JOIN, which would be an important factor were the database to be very large. I also feel that using INNER JOIN makes it easier to read as a human than if the queries were comprised of multiple SELECT statements or large lists of data selected from a WHERE clause.
+Using the INNER JOIN should improve performance of the database over an implied JOIN, which would be an important factor were the database to be very large. I also feel that using INNER JOIN makes it easier to read as a human than if the queries were comprised of multiple SELECT statements or large lists of data selected from a WHERE clause.
 \subsubsection{Test Query 1}
 "Return the piste(s) served by a given lift."
 \begin{lstlisting}
+-- SELECT the Pistes serviced by a particular Lift.
 SELECT lifts.lift_name, pistes.*
 	FROM piste pistes
 		INNER JOIN connections conns
@@ -386,6 +396,7 @@ This query selects all the data concerning the piste(s) that are served by a giv
 \subsubsection{Test Query 2}
 "Return the lift(s) that provide access to a given piste."
 \begin{lstlisting}
+-- SELECT the Lifts that provide access to a given Piste.
 SELECT pistes.piste_name, lifts.*
 	FROM lift lifts
 		INNER JOIN connections conns
@@ -411,7 +422,8 @@ This query is the same as the first query, but looking for Lifts providing acces
 \subsubsection{Test Query 3}
 "Return the lifts that are currently operating."
 \begin{lstlisting}
-SELECT lift_name, operating 
+-- SELECT the Lifts that are currently operating.
+SELECT lift_name, operating
 	FROM lift WHERE operating='t';
 \end{lstlisting}
 Look for the Lifts that are currently operating. In this case, look for those that are marked 'TRUE', or 't', in the operating attribute. I chose to only display the lift\_name and it's operational status for this query. However, by exchanging the two requested attributes for an '*', 'SELECT * FROM...', it would return all the data for each of the operating lifts. I also understood the requested query as asking for all Lifts operating, regardless of whether the Pistes they service are open or not.
@@ -429,6 +441,9 @@ Look for the Lifts that are currently operating. In this case, look for those th
 \subsubsection{Test Query 4}
 "Return the pistes that are currently open, together with the lifts that are currently operating and that provide access to those pistes."
 \begin{lstlisting}
+-- SELECT the Pistes that are currently open, together with the 
+lifts that are currently operating and that provide access to 
+those pistes.
 SELECT pistes.piste_uid, pistes.piste_name, pistes.open_piste, 
 lifts.lift_uid, lifts.lift_name, lifts.operating
 FROM
@@ -448,7 +463,7 @@ I chose to only return the UIDs, Name and open/operating status of the Pistes an
 \begin{figure}[H]
   \centering
     \includegraphics[width=1\textwidth]{IMG/query_4_1.png}
- \caption{The Lifts that are currently operating.}
+ \caption{The Pistes that are open, with the corresponding connecting Lifts that are currently operating.}
 \end{figure}
 
 \section{Conclusion}

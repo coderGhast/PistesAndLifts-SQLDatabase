@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.11.26)  22 FEB 2014 23:36
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.11.26)  23 FEB 2014 00:28
 entering extended mode
 **Lifts*and*Pistes*Database.tex
 
@@ -654,16 +654,16 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
  [1{C:/Users/Narctiss/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ] [2]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 133.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 135.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 133.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 135.
 LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/b/it' tried instead on input line 135.
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 137.
  [3] [4] [5]
 [6] [7]
 ("C:\Users\Narctiss\Documents\University Work\CS270\CS27020-Pistes-and-Lifts\SQ
@@ -676,41 +676,41 @@ LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
 File: IMG/create_tables.png Graphic file (type png)
 
 <use IMG/create_tables.png>
-Package pdftex.def Info: IMG/create_tables.png used on input line 253.
+Package pdftex.def Info: IMG/create_tables.png used on input line 258.
 (pdftex.def)             Requested size: 418.25368pt x 193.20215pt.
 
 <IMG/completed_tables.png, id=41, 817.0525pt x 232.87pt>
 File: IMG/completed_tables.png Graphic file (type png)
 
 <use IMG/completed_tables.png>
-Package pdftex.def Info: IMG/completed_tables.png used on input line 258.
+Package pdftex.def Info: IMG/completed_tables.png used on input line 263.
 (pdftex.def)             Requested size: 418.25368pt x 119.20984pt.
  [10 <C:/Users/Narctiss/Documents/University Work/CS270/CS27020-Pistes-and-Lift
 s/DOCS/IMG/create_tables.png (PNG copy)> <C:/Users/Narctiss/Documents/Universit
 y Work/CS270/CS27020-Pistes-and-Lifts/DOCS/IMG/completed_tables.png (PNG copy)>
 ]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 268.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 275.
  [11] [12]
 <IMG/content_piste.png, id=51, 800.9925pt x 377.41pt>
 File: IMG/content_piste.png Graphic file (type png)
 
 <use IMG/content_piste.png>
-Package pdftex.def Info: IMG/content_piste.png used on input line 307.
+Package pdftex.def Info: IMG/content_piste.png used on input line 316.
 (pdftex.def)             Requested size: 418.25368pt x 197.07207pt.
 
 <IMG/content_lift.png, id=52, 817.0525pt x 345.29pt>
 File: IMG/content_lift.png Graphic file (type png)
 
 <use IMG/content_lift.png>
-Package pdftex.def Info: IMG/content_lift.png used on input line 312.
+Package pdftex.def Info: IMG/content_lift.png used on input line 321.
 (pdftex.def)             Requested size: 418.25368pt x 176.75941pt.
 
 <IMG/content_connections.png, id=53, 817.0525pt x 554.07pt>
 File: IMG/content_connections.png Graphic file (type png)
 
 <use IMG/content_connections.png>
-Package pdftex.def Info: IMG/content_connections.png used on input line 317.
+Package pdftex.def Info: IMG/content_connections.png used on input line 326.
 (pdftex.def)             Requested size: 418.25368pt x 283.63722pt.
  [13 <C:/Users/Narctiss/Documents/University Work/CS270/CS27020-Pistes-and-Lift
 s/DOCS/IMG/content_piste.png (PNG copy)> <C:/Users/Narctiss/Documents/Universit
@@ -718,20 +718,20 @@ y Work/CS270/CS27020-Pistes-and-Lifts/DOCS/IMG/content_lift.png (PNG copy)>]
 <IMG/err_exists.png, id=58, 776.9025pt x 136.51pt>
 File: IMG/err_exists.png Graphic file (type png)
  <use IMG/err_exists.png>
-Package pdftex.def Info: IMG/err_exists.png used on input line 328.
+Package pdftex.def Info: IMG/err_exists.png used on input line 337.
 (pdftex.def)             Requested size: 418.25368pt x 73.4935pt.
 
 <IMG/err_no_enum.png, id=59, 776.9025pt x 136.51pt>
 File: IMG/err_no_enum.png Graphic file (type png)
  <use IMG/err_no_enum.png>
-Package pdftex.def Info: IMG/err_no_enum.png used on input line 333.
+Package pdftex.def Info: IMG/err_no_enum.png used on input line 342.
 (pdftex.def)             Requested size: 418.25368pt x 73.4935pt.
 
 <IMG/err_null_value.png, id=60, 776.9025pt x 136.51pt>
 File: IMG/err_null_value.png Graphic file (type png)
 
 <use IMG/err_null_value.png>
-Package pdftex.def Info: IMG/err_null_value.png used on input line 338.
+Package pdftex.def Info: IMG/err_null_value.png used on input line 347.
 (pdftex.def)             Requested size: 418.25368pt x 73.4935pt.
  [14 <C:/Users/Narctiss/Documents/University Work/CS270/CS27020-Pistes-and-Lift
 s/DOCS/IMG/content_connections.png (PNG copy)> <C:/Users/Narctiss/Documents/Uni
@@ -741,7 +741,7 @@ versity Work/CS270/CS27020-Pistes-and-Lifts/DOCS/IMG/err_exists.png (PNG copy)>
 File: IMG/err_no_negatives.png Graphic file (type png)
 
 <use IMG/err_no_negatives.png>
-Package pdftex.def Info: IMG/err_no_negatives.png used on input line 343.
+Package pdftex.def Info: IMG/err_no_negatives.png used on input line 352.
 (pdftex.def)             Requested size: 418.25368pt x 54.50928pt.
  [15 <C:/Users/Narctiss/Documents/University Work/CS270/CS27020-Pistes-and-Lift
 s/DOCS/IMG/err_no_enum.png (PNG copy)> <C:/Users/Narctiss/Documents/University 
@@ -751,25 +751,25 @@ MG/err_no_negatives.png (PNG copy)>]
 <IMG/query_1_1.png, id=68, 905.3825pt x 168.63pt>
 File: IMG/query_1_1.png Graphic file (type png)
  <use IMG/query_1_1.png>
-Package pdftex.def Info: IMG/query_1_1.png used on input line 376.
+Package pdftex.def Info: IMG/query_1_1.png used on input line 386.
 (pdftex.def)             Requested size: 418.25368pt x 77.90009pt.
 
 [16] <IMG/query_1_2.png, id=72, 905.3825pt x 168.63pt>
 File: IMG/query_1_2.png Graphic file (type png)
  <use IMG/query_1_2.png>
-Package pdftex.def Info: IMG/query_1_2.png used on input line 382.
+Package pdftex.def Info: IMG/query_1_2.png used on input line 392.
 (pdftex.def)             Requested size: 418.25368pt x 77.90009pt.
 
 <IMG/query_2_1.png, id=73, 921.4425pt x 152.57pt>
 File: IMG/query_2_1.png Graphic file (type png)
  <use IMG/query_2_1.png>
-Package pdftex.def Info: IMG/query_2_1.png used on input line 401.
+Package pdftex.def Info: IMG/query_2_1.png used on input line 412.
 (pdftex.def)             Requested size: 418.25368pt x 69.25183pt.
 
 <IMG/query_2_2.png, id=74, 921.4425pt x 168.63pt>
 File: IMG/query_2_2.png Graphic file (type png)
  <use IMG/query_2_2.png>
-Package pdftex.def Info: IMG/query_2_2.png used on input line 407.
+Package pdftex.def Info: IMG/query_2_2.png used on input line 418.
 (pdftex.def)             Requested size: 418.25368pt x 76.5415pt.
 
 [17 <C:/Users/Narctiss/Documents/University Work/CS270/CS27020-Pistes-and-Lifts
@@ -780,7 +780,7 @@ _2_1.png (PNG copy)>] <IMG/query_3_1.png, id=78, 921.4425pt x 281.05pt>
 File: IMG/query_3_1.png Graphic file (type png)
 
 <use IMG/query_3_1.png>
-Package pdftex.def Info: IMG/query_3_1.png used on input line 421.
+Package pdftex.def Info: IMG/query_3_1.png used on input line 433.
 (pdftex.def)             Requested size: 418.25368pt x 127.56917pt.
  [18 <C:/Users/Narctiss/Documents/University Work/CS270/CS27020-Pistes-and-Lift
 s/DOCS/IMG/query_2_2.png (PNG copy)> <C:/Users/Narctiss/Documents/University Wo
@@ -789,17 +789,17 @@ y_4_1.png, id=82, 921.4425pt x 297.11pt>
 File: IMG/query_4_1.png Graphic file (type png)
 
 <use IMG/query_4_1.png>
-Package pdftex.def Info: IMG/query_4_1.png used on input line 450.
+Package pdftex.def Info: IMG/query_4_1.png used on input line 465.
 (pdftex.def)             Requested size: 418.25368pt x 134.85884pt.
  [19 <C:/Users/Narctiss/Documents/University Work/CS270/CS27020-Pistes-and-Lift
 s/DOCS/IMG/query_4_1.png (PNG copy)>] [20] [21]
 ("C:\Users\Narctiss\Documents\University Work\CS270\CS27020-Pistes-and-Lifts\DO
 CS\Lifts and Pistes Database.aux") ) 
 Here is how much of TeX's memory you used:
- 7283 strings out of 493921
- 108187 string characters out of 3144866
+ 7289 strings out of 493921
+ 108250 string characters out of 3144866
  230253 words of memory out of 3000000
- 10463 multiletter control sequences out of 15000+200000
+ 10469 multiletter control sequences out of 15000+200000
  12004 words of font info for 44 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  50i,11n,54p,655b,1887s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -814,7 +814,7 @@ sfonts/cm/cmss10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmss12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmti10.pfb>
-Output written on "Lifts and Pistes Database.pdf" (21 pages, 535154 bytes).
+Output written on "Lifts and Pistes Database.pdf" (21 pages, 538570 bytes).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
